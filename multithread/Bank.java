@@ -14,9 +14,9 @@ public class Bank {
 		this.name = name;
 	}
 
-	public void Print() {
+	public synchronized void Print() {
 		while (true) {
-			mylock.lock();
+			//mylock.lock();
 			try {
 				Thread.sleep((long) (Math.random() * 100));
 				index += 1;
@@ -26,7 +26,7 @@ public class Bank {
 					break;
 			} catch (Exception e) {
 			} finally {
-				mylock.unlock();
+				//mylock.unlock();
 			}
 		}
 	}
